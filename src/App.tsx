@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from "framer-motion";
 
-function App() {
+export const App: React.FC = () => {
   return (
       <BrowserRouter>
         <Route render={({location}) => (
@@ -16,5 +16,3 @@ function App() {
       </BrowserRouter>
   );
 }
-
-export default App;
