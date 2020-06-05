@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {AnimatePresence} from "framer-motion";
 import {Layout} from "./components/Layout";
-import { TestForm } from "./components/TestForm";
+import {TestForm} from "./components/TestForm";
 import {Counter} from "./components/Counter";
 
 export const App: React.FC = () => {
@@ -22,3 +22,4 @@ export const App: React.FC = () => {
         </BrowserRouter>
     );
 }
+
