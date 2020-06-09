@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Ref} from "react";
 import {WrappedFieldInputProps, WrappedFieldMetaProps} from "redux-form/lib/Field";
 
 export interface IRenderField {
@@ -6,16 +6,26 @@ export interface IRenderField {
     id: string
     type: string
     inputRef: any
-    onEnter?: OnEnterType
-    input: WrappedFieldInputProps;
-    meta: WrappedFieldMetaProps;
+    onKeyPress?: onKeyPressType
+    input: WrappedFieldInputProps
+    meta: WrappedFieldMetaProps
+    showOnSubmit: boolean
 }
 
-export type OnEnterType = (e: React.KeyboardEvent) => void
+export type onKeyPressType = (e: React.KeyboardEvent) => void
 
 export interface IRefs {
-    [key: string]: HTMLInputElement | null
+    [key: string]: HTMLInputElement | HTMLButtonElement | null
 }
 
-export type SetRefType = (ref: HTMLInputElement) => void;
-export type SetupSetRef = (name: string) => SetRefType;
+export type SetRefType = (ref: HTMLInputElement | HTMLButtonElement) => void;
+export type SetupSetRef = (name: string, refs: IRefs) => SetRefType;
+
+export type NextInputHandlerType = (e: React.KeyboardEvent) => void;
+export type SetupNextInputType = (nextInputName: string, refs: IRefs) => NextInputHandlerType;
+
+export type ObjectOfString = {
+    [key: string]: string
+}
+
+export type ValidationType = (values: ObjectOfString) => ObjectOfString;
